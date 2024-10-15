@@ -1,3 +1,12 @@
+#include <stdio.h>
+#include <string.h>
+//--------------------------------------------------------------------
+struct precios{
+        int tiempo;
+        int contraseña[50];
+        char nombre[50];
+};
+//--------------------------------------------------------------------
 void iniciarSecion(){
 
 }
@@ -10,9 +19,39 @@ void precios(){
 
 }
 //--------------------------------------------------------------------
-#include <stdio.h>
-#include <string.h>
+void tiempoRestante(){
+
+}
+//--------------------------------------------------------------------
+void historial(){
+
+}
+//--------------------------------------------------------------------
+void cuentas(){
+
+}
+//--------------------------------------------------------------------
+void salir(){
+    int up;
+    printf("¿Esta seguro que quiere cerrar sesion?");
+    printf("\n1_ Si.");
+    printf("\n2_ No. ");
+    scanf("%d", &up);
+    switch (up )
+    {
+    case 1:
+        
+        break;
+    case 2:
+
+        break;
+    default:
+        break;
+    }
+}
+//--------------------------------------------------------------------
 int main(){
+    int usuario;
     int op;
     printf("\t\tBIENVENIDO AL CIBER DEL PIBE.\n");
     while (op != 4)
@@ -25,19 +64,23 @@ int main(){
     scanf("%d",&op);
     switch (op)
     {
-    case '1':
+    case 1:
         iniciarSecion;
         break;
-    case '2':
+    case 2:
         crearCuenta;
         break;
-    case '3':
+    case 3:
         precios;
-        break;      
+        break;  
+    case 4:
+        salir();
+        break;        
     default:
+        printf("Opcion no valida.");
         break;
     }   
     }
-    printf("Saliendo, tenga un exelente dia...");
+    
     return 0;
 }
