@@ -54,13 +54,19 @@ int menu(int op){
         printf("4_ Salir.\n");
         printf("Opcion seleccionada:");
         scanf("%d",&op);
+        if (op >=1 && op <=4){
+            return op;
+        }else{
+            printf("Opcion no valida...");
+        }
+        
     }   
-    return op;
+    
 }
 //--------------------------------------------------------------------
-void salir(int op){
+void salir(int *op){
     int up;
-
+    *op = 0;
     printf("¿Esta seguro que quiere cerrar sesion?");
     printf("\n1_ Si.");
     printf("\n2_ No. ");
@@ -69,45 +75,40 @@ void salir(int op){
     {
     case 1:
         printf("Saliendo, tenga un exelente dia...\n");
+        *op = 4;
         break;
     case 2:
         printf("Regresando al menu principal...\n");
-       op = menu(op);
+       *op = 0;
         break;
     default:
+        printf("Opcion no valida regresando al menu principal...\n");
+        *op = 0;
         break;
     }
 }
 //--------------------------------------------------------------------
 int main(){
-    int usuario;
-    int op;
+    
+    int op = 0;
     struct Cuentas cuentaN[MAX_CUENTAS];
-    printf("\t\tBIENVENIDO AL CIBER DEL PIBE.\n");
-    while (op != 4){
-        printf("1_ Iniciar secion.\n");
-        printf("2_ Crear cuenta.\n");
-        printf("3_ Precios.\n");
-        printf("4_ Salir.\n");
-        printf("Opcion seleccionada:");
-        scanf("%d",&op);
-        switch (op){
-            case 1:
-                iniciarSesion;
-                break;
-            case 2:
-                crearCuenta(cuentaN);
-                break;
-            case 3:
-                precios;
-                break;  
-            case 4:
-                salir();
-                break;        
-            default:
-                printf("Opcion no valida.");
-                break;
-            }
+    op = menu(op);
+    switch (op){
+    case 1:
+        iniciarSesion();
+        break;
+    case 2:
+        crearCuenta(cuentaN);
+        break;
+    case 3:
+        precios();
+        break;  
+    case 4:
+        salir(op);
+        break;        
+    default:
+        printf("Opcion no valida.");
+        break;
     }
 
     return 0;
