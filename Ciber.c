@@ -19,6 +19,7 @@ int administrador(struct admin a[MIN_CUENTA]);
 void usuario(struct Cuentas c[MIN_CUENTA]);     
 int menu(int op); 
 int CcAdmin(struct admin a[MIN_CUENTA]);  
+void menuAdmin();
 //--------------------------------------------------------------------
 void iniciarSesion(int op){
     struct admin a[MIN_CUENTA];
@@ -56,7 +57,8 @@ int administrador(struct admin a[MIN_CUENTA]){
         printf("Escriba su nombre\n");
         scanf("%s",a[i].admin);
         printf("Escribi la contraseña\n");
-        printf("%s",a[i].clave);        
+        printf("%s",a[i].clave); 
+        menuAdmin();       
     }
     return 0;
 }
@@ -132,14 +134,29 @@ int crearUsuario(struct Cuentas c[MAX_CUENTAS]){
 }
 //--------------------------------------------------------------------
 void menuAdmin(){
-    int op;
+    int op = 0;
     printf("\tMenu de administrador\n\n");
     printf("1_Ver computadoras.\n");
-    printf("");
+    printf("2_");
+    scanf("%d",&op);
+    switch(op)
+    {
+    case 1:
+        printf("falta agregar contenido");
+        break;
+    
+    default:
+        break;
+    }
 }
 //--------------------------------------------------------------------
 void precios(){
-    
+printf("LISTA DE PRECIOS\n");
+printf("-------------------------\n");
+printf ("1 hs = $700\n");
+printf("Presione enter para volver\n");
+getchar();
+getchar();
 }
 //--------------------------------------------------------------------
 void tiempoRestante(){
@@ -147,10 +164,6 @@ void tiempoRestante(){
 }
 //--------------------------------------------------------------------
 void historial(){
-
-}
-//--------------------------------------------------------------------
-void cuentas(){
 
 }
 //--------------------------------------------------------------------
